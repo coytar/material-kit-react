@@ -1,4 +1,4 @@
-import faker from 'faker';
+import Chance from 'chance';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import googleFill from '@iconify/icons-eva/google-fill';
@@ -11,26 +11,27 @@ import { Box, Grid, Card, Paper, Typography, CardHeader, CardContent } from '@mu
 import { fShortenNumber } from '../../../utils/formatNumber';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const SOCIALS = [
   {
     name: 'FaceBook',
-    value: faker.datatype.number(),
+    value: chance.natural(),
     icon: <Icon icon={facebookFill} color="#1877F2" width={32} height={32} />
   },
   {
     name: 'Google',
-    value: faker.datatype.number(),
+    value: chance.natural(),
     icon: <Icon icon={googleFill} color="#DF3E30" width={32} height={32} />
   },
   {
     name: 'Linkedin',
-    value: faker.datatype.number(),
+    value: chance.natural(),
     icon: <Icon icon={linkedinFill} color="#006097" width={32} height={32} />
   },
   {
     name: 'Twitter',
-    value: faker.datatype.number(),
+    value: chance.natural(),
     icon: <Icon icon={twitterFill} color="#1C9CEA" width={32} height={32} />
   }
 ];

@@ -1,4 +1,4 @@
-import faker from 'faker';
+import Chance from 'chance';
 import PropTypes from 'prop-types';
 import { noCase } from 'change-case';
 import { useRef, useState } from 'react';
@@ -32,10 +32,11 @@ import Scrollbar from '../../components/Scrollbar';
 import MenuPopover from '../../components/MenuPopover';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const NOTIFICATIONS = [
   {
-    id: faker.datatype.uuid(),
+    id: chance.guid(),
     title: 'Your order is placed',
     description: 'waiting for shipping',
     avatar: null,
@@ -44,8 +45,8 @@ const NOTIFICATIONS = [
     isUnRead: true
   },
   {
-    id: faker.datatype.uuid(),
-    title: faker.name.findName(),
+    id: chance.guid(),
+    title: chance.name(),
     description: 'answered to your comment on the Minimal',
     avatar: mockImgAvatar(2),
     type: 'friend_interactive',
@@ -53,7 +54,7 @@ const NOTIFICATIONS = [
     isUnRead: true
   },
   {
-    id: faker.datatype.uuid(),
+    id: chance.guid(),
     title: 'You have new message',
     description: '5 unread messages',
     avatar: null,
@@ -62,7 +63,7 @@ const NOTIFICATIONS = [
     isUnRead: false
   },
   {
-    id: faker.datatype.uuid(),
+    id: chance.guid(),
     title: 'You have new mail',
     description: 'sent from Guido Padberg',
     avatar: null,
@@ -71,7 +72,7 @@ const NOTIFICATIONS = [
     isUnRead: false
   },
   {
-    id: faker.datatype.uuid(),
+    id: chance.guid(),
     title: 'Delivery processing',
     description: 'Your order is being shipped',
     avatar: null,

@@ -1,4 +1,4 @@
-import faker from 'faker';
+import Chance from 'chance';
 import PropTypes from 'prop-types';
 // material
 import { Card, Typography, CardHeader, CardContent } from '@mui/material';
@@ -14,31 +14,32 @@ import {
 import { fDateTime } from '../../../utils/formatTime';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const TIMELINES = [
   {
     title: '1983, orders, $4220',
-    time: faker.date.past(),
+    time: chance.date(),
     type: 'order1'
   },
   {
     title: '12 Invoices have been paid',
-    time: faker.date.past(),
+    time: chance.date(),
     type: 'order2'
   },
   {
     title: 'Order #37745 from September',
-    time: faker.date.past(),
+    time: chance.date(),
     type: 'order3'
   },
   {
     title: 'New order placed #XF-2356',
-    time: faker.date.past(),
+    time: chance.date(),
     type: 'order4'
   },
   {
     title: 'New order placed #XF-2346',
-    time: faker.date.past(),
+    time: chance.date(),
     type: 'order5'
   }
 ];

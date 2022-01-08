@@ -1,4 +1,4 @@
-import faker from 'faker';
+import Chance from 'chance';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { formatDistance } from 'date-fns';
@@ -12,14 +12,15 @@ import { mockImgCover } from '../../../utils/mockImages';
 import Scrollbar from '../../Scrollbar';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const NEWS = [...Array(5)].map((_, index) => {
   const setIndex = index + 1;
   return {
-    title: faker.name.title(),
-    description: faker.lorem.paragraphs(),
+    title: chance.name(),
+    description: chance.paragraph(),
     image: mockImgCover(setIndex),
-    postedAt: faker.date.soon()
+    postedAt: chance.date()
   };
 });
 

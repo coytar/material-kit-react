@@ -1,8 +1,10 @@
-import faker from 'faker';
+import Chance from 'chance';
+
 // utils
 import { mockImgCover } from '../utils/mockImages';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const POST_TITLES = [
   'Whiteboard Templates By Industry Leaders',
@@ -32,16 +34,16 @@ const POST_TITLES = [
 ];
 
 const posts = [...Array(23)].map((_, index) => ({
-  id: faker.datatype.uuid(),
+  id: chance.guid(),
   cover: mockImgCover(index + 1),
   title: POST_TITLES[index + 1],
-  createdAt: faker.date.past(),
-  view: faker.datatype.number(),
-  comment: faker.datatype.number(),
-  share: faker.datatype.number(),
-  favorite: faker.datatype.number(),
+  createdAt: chance.date(),
+  view: chance.natural(),
+  comment: chance.natural(),
+  share: chance.natural(),
+  favorite: chance.natural(),
   author: {
-    name: faker.name.findName(),
+    name: chance.name(),
     avatarUrl: `/static/mock-images/avatars/avatar_${index + 1}.jpg`
   }
 }));

@@ -1,16 +1,17 @@
-import faker from 'faker';
+import Chance from 'chance';
 import { sample } from 'lodash';
 // utils
 import { mockImgAvatar } from '../utils/mockImages';
 
 // ----------------------------------------------------------------------
+const chance = new Chance();
 
 const users = [...Array(24)].map((_, index) => ({
-  id: faker.datatype.uuid(),
+  id: chance.guid(),
   avatarUrl: mockImgAvatar(index + 1),
-  name: faker.name.findName(),
-  company: faker.company.companyName(),
-  isVerified: faker.datatype.boolean(),
+  name: chance.name(),
+  company: chance.company(),
+  isVerified: chance.bool(),
   status: sample(['active', 'banned']),
   role: sample([
     'Leader',
