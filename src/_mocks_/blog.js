@@ -38,10 +38,10 @@ const posts = [...Array(23)].map((_, index) => ({
   cover: mockImgCover(index + 1),
   title: POST_TITLES[index + 1],
   createdAt: chance.date(),
-  view: chance.natural(),
-  comment: chance.natural(),
-  share: chance.natural(),
-  favorite: chance.natural(),
+  view: chance.integer({ min: 0, max: 1000 }),
+  comment: chance.integer({ min: 0, max: 1000 }),
+  share: chance.integer({ min: 0, max: 1000 }),
+  favorite: chance.integer({ min: 0, max: 1000 }),
   author: {
     name: chance.name(),
     avatarUrl: `/static/mock-images/avatars/avatar_${index + 1}.jpg`
